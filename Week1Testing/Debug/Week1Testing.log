@@ -1,0 +1,11 @@
+﻿  gf2d_graphics.c
+c:\users\tim nieto\documents\visual studio 2017\projects\week1testing\src\gf2d_graphics.c(126): warning C4244: 'function': conversion from 'double' to 'Uint8', possible loss of data
+c:\users\tim nieto\documents\visual studio 2017\projects\week1testing\src\gf2d_graphics.c(131): warning C4113: 'void (__cdecl *)()' differs in parameter lists from 'void (__cdecl *)(void)'
+c:\users\tim nieto\documents\visual studio 2017\projects\week1testing\src\gf2d_graphics.c(203): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\tim nieto\documents\visual studio 2017\projects\week1testing\src\gf2d_graphics.c(220): warning C4244: 'function': conversion from 'double' to 'Uint8', possible loss of data
+c:\users\tim nieto\documents\visual studio 2017\projects\week1testing\src\gf2d_graphics.c(221): warning C4244: 'function': conversion from 'double' to 'Uint8', possible loss of data
+c:\users\tim nieto\documents\visual studio 2017\projects\week1testing\src\gf2d_graphics.c(222): warning C4244: 'function': conversion from 'double' to 'Uint8', possible loss of data
+c:\users\tim nieto\documents\visual studio 2017\projects\week1testing\src\gf2d_graphics.c(223): warning C4244: 'function': conversion from 'double' to 'Uint8', possible loss of data
+  LINK : ./Week1Testing.exe not found or not built by the last incremental link; performing full link
+  Week1Testing.vcxproj -> C:\Users\Tim Nieto\documents\visual studio 2017\Projects\Week1Testing\Week1Testing\./Week1Testing.exe
+  Week1Testing.vcxproj -> ./Week1Testing.pdb (Partial PDB)

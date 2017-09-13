@@ -1,0 +1,13 @@
+﻿  simple_logger.c
+c1 : fatal error C1083: Cannot open source file: '..\src\simple_logger.c': No such file or directory
+  gf2d_vector.c
+c1 : fatal error C1083: Cannot open source file: '..\src\gf2d_vector.c': No such file or directory
+  gf2d_sprite.c
+c1 : fatal error C1083: Cannot open source file: '..\src\gf2d_sprite.c': No such file or directory
+  gf2d_graphics.c
+c1 : fatal error C1083: Cannot open source file: '..\src\gf2d_graphics.c': No such file or directory
+  gf2d_draw.c
+c1 : fatal error C1083: Cannot open source file: '..\src\gf2d_draw.c': No such file or directory
+  game.c
+c1 : fatal error C1083: Cannot open source file: '..\src\game.c': No such file or directory
+  Generating Code...
