@@ -158,6 +158,10 @@
     <ClInclude Include="..\include\gf2d_types.h" />
     <ClInclude Include="..\include\gf2d_vector.h" />
     <ClInclude Include="..\include\simple_logger.h" />
+    <ClInclude Include="2DEntitySystem.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\game.c" />
@@ -166,6 +170,7 @@
     <ClCompile Include="..\src\gf2d_sprite.c" />
     <ClCompile Include="..\src\gf2d_vector.c" />
     <ClCompile Include="..\src\simple_logger.c" />
+    <ClCompile Include="2DEntitySystem.c" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\src\Makefile" />
