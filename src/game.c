@@ -1,6 +1,7 @@
 #include <SDL.h>
 #include "gf2d_graphics.h"
 #include "gf2d_sprite.h"
+#include "Entity.h"
 #include "simple_logger.h"
 
 int main(int argc, char * argv[])
@@ -9,7 +10,11 @@ int main(int argc, char * argv[])
     int done = 0;
     const Uint8 * keys;
     Sprite *sprite;
+	Entity entitylist[100];
     
+	int start = 0;
+	Sprite *player;
+
     int mx,my;
     float mf = 0;
     Sprite *mouse;
@@ -32,7 +37,14 @@ int main(int argc, char * argv[])
     
     /*demo setup*/
     sprite = gf2d_sprite_load_image("images/backgrounds/bg_flat.png");
+	player = gf2d_sprite_load_all("images/spacebug.png", 32, 32, 16);
     mouse = gf2d_sprite_load_all("images/pointer.png",32,32,16);
+
+	for (int i = 0; i < 100; i++)
+	{
+		
+	}
+
     /*main game loop*/
     while(!done)
     {

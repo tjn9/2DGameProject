@@ -13,17 +13,17 @@ typedef struct
     Sprite * sprite_list;
 }SpriteManager;
 
-static SpriteManager sprite_manager;
+static SpriteManager entity_manager;
 
 void gf2d_sprite_close()
 {
     gf2d_sprite_clear_all();
-    if (sprite_manager.sprite_list != NULL)
+    if (entity_manager.sprite_list != NULL)
     {
-        free(sprite_manager.sprite_list);
+        free(entity_manager.sprite_list);
     }
-    sprite_manager.sprite_list = NULL;
-    sprite_manager.max_sprites = 0;
+    entity_manager.sprite_list = NULL;
+    entity_manager.max_sprites = 0;
     slog("sprite system closed");
 }
 
@@ -34,9 +34,9 @@ void gf2d_sprite_init(Uint32 max)
         slog("cannot intialize a sprite manager for Zero sprites!");
         return;
     }
-    sprite_manager.max_sprites = max;
-    sprite_manager.sprite_list = (Sprite *)malloc(sizeof(Sprite)*max);
-    memset (sprite_manager.sprite_list,0,sizeof(Sprite)*max);
+    entity_manager.max_sprites = max;
+    entity_manager.sprite_list = (Sprite *)malloc(sizeof(Sprite)*max);
+    memset (entity_manager.sprite_list,0,sizeof(Sprite)*max);
     if (!(IMG_Init( IMG_INIT_PNG) & IMG_INIT_PNG))
     {
         slog("failed to init image: %s",SDL_GetError());
@@ -65,9 +65,9 @@ void gf2d_sprite_free(Sprite *sprite)
 void gf2d_sprite_clear_all()
 {
     int i;
-    for (i = 0;i < sprite_manager.max_sprites;i++)
+    for (i = 0;i < entity_manager.max_sprites;i++)
     {
-        gf2d_sprite_delete(&sprite_manager.sprite_list[i]);// clean up the data
+        gf2d_sprite_delete(&entity_manager.sprite_list[i]);// clean up the data
     }
 }
 
@@ -75,22 +75,22 @@ Sprite *gf2d_sprite_new()
 {
     int i;
     /*search for an unused sprite address*/
-    for (i = 0;i < sprite_manager.max_sprites;i++)
+    for (i = 0;i < entity_manager.max_sprites;i++)
     {
-        if ((sprite_manager.sprite_list[i].ref_count == 0)&&(sprite_manager.sprite_list[i].texture == NULL))
+        if ((entity_manager.sprite_list[i].ref_count == 0)&&(entity_manager.sprite_list[i].texture == NULL))
         {
-            sprite_manager.sprite_list[i].ref_count = 1;//set ref count
-            return &sprite_manager.sprite_list[i];//return address of this array element        }
+            entity_manager.sprite_list[i].ref_count = 1;//set ref count
+            return &entity_manager.sprite_list[i];//return address of this array element        }
         }
     }
     /*find an unused sprite address and clean up the old data*/
-    for (i = 0;i < sprite_manager.max_sprites;i++)
+    for (i = 0;i < entity_manager.max_sprites;i++)
     {
-        if (sprite_manager.sprite_list[i].ref_count == 0)
+        if (entity_manager.sprite_list[i].ref_count == 0)
         {
-            gf2d_sprite_delete(&sprite_manager.sprite_list[i]);// clean up the old data
-            sprite_manager.sprite_list[i].ref_count = 1;//set ref count
-            return &sprite_manager.sprite_list[i];//return address of this array element
+            gf2d_sprite_delete(&entity_manager.sprite_list[i]);// clean up the old data
+            entity_manager.sprite_list[i].ref_count = 1;//set ref count
+            return &entity_manager.sprite_list[i];//return address of this array element
         }
     }
     slog("error: out of sprite addresses");
@@ -100,11 +100,11 @@ Sprite *gf2d_sprite_new()
 Sprite *gf2d_sprite_get_by_filename(char * filename)
 {
     int i;
-    for (i = 0;i < sprite_manager.max_sprites;i++)
+    for (i = 0;i < entity_manager.max_sprites;i++)
     {
-        if (gf2d_line_cmp(sprite_manager.sprite_list[i].filepath,filename)==0)
+        if (gf2d_line_cmp(entity_manager.sprite_list[i].filepath,filename)==0)
         {
-            return &sprite_manager.sprite_list[i];
+            return &entity_manager.sprite_list[i];
         }
     }
     return NULL;// not found
